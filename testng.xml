@@ -1,16 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Ecommerce Automation Suite">
-
     <test name="Regression Tests">
-
         <classes>
-
             <class name="tests.LoginTest"/>
             <class name="tests.AddToCartTest"/>
             <class name="tests.CheckoutTest"/>
-
+            <class name="tests.DataDrivenLoginTest"/>
+            <class name="tests.RemoveFromCartTest"/>
         </classes>
-
     </test>
-
 </suite>
