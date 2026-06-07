@@ -99,7 +99,7 @@ public class InventoryPage {
     public void openCart() {
 
         WaitUtils.waitForClickable(
-                cartIcon
+                cartIcon    
         );
 
         driver.findElement(

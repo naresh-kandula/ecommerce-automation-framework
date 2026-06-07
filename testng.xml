@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Ecommerce Automation Suite">
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
     <test name="Regression Tests">
         <classes>
             <class name="tests.LoginTest"/>
@@ -7,6 +10,10 @@
             <class name="tests.CheckoutTest"/>
             <class name="tests.DataDrivenLoginTest"/>
             <class name="tests.RemoveFromCartTest"/>
+            <class name="tests.LogoutTest"/>
+            <class name="tests.LockedUserLoginTest"/>
+            <class name="tests.InvalidLoginTest"/>
+            <class name="tests.EmptyLoginTest"/>
         </classes>
     </test>
 </suite>

@@ -18,6 +18,8 @@ public class LoginPage {
     private By password = By.id("password");
     private By loginBtn = By.id("login-button");
     private By errorMsg = By.cssSelector("[data-test='error']");
+    private By usernameField = By.id("user-name");
+    private By errorMessage = By.cssSelector("h3[data-test='error']");
 
     // Actions
     public void enterUsername(String user) {
@@ -47,5 +49,18 @@ public class LoginPage {
         } catch (Exception e) {
             return "";
         }
+    }
+
+    public boolean isLoginPageDisplayed() {
+
+        try {
+            return driver.findElement(usernameField).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public String getLoginErrorMessage() {
+        return driver.findElement(errorMessage).getText();
     }
 }
