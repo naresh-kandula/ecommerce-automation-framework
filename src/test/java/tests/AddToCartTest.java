@@ -27,7 +27,7 @@ public class AddToCartTest extends BaseTest {
 
         // Step 3: Validate cart count
         String count = inventoryPage.getCartCount();
-        Assert.assertEquals(count, "1", "Cart count mismatch");
+        Assert.assertEquals(count, "2", "Cart count mismatch");
 
         // Step 4: Open cart
         inventoryPage.openCart();

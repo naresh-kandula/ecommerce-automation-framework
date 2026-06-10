@@ -10,18 +10,28 @@ import java.io.IOException;
 
 public class ScreenshotUtils {
 
-    public static void captureScreenshot(String testName) {
+    public static String captureScreenshot(String testName) {
 
-        File source = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
+        File source =
+                ((TakesScreenshot) DriverFactory.getDriver())
+                        .getScreenshotAs(OutputType.FILE);
 
-        String destination = System.getProperty("user.dir") + "/screenshots/" + testName + ".png";
+        String relativePath =
+                "screenshots/" + testName + ".png";
+
+        String fullPath =
+                System.getProperty("user.dir")
+                        + "/" + relativePath;
 
         try {
-
-            FileUtils.copyFile(source, new File(destination));
-
+            FileUtils.copyFile(
+                    source,
+                    new File(fullPath)
+            );
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return relativePath;
     }
 }
