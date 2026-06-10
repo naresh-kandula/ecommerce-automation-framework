@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
+import utils.ConfigReader;
 
 public class LoginTest extends BaseTest {
 
@@ -14,7 +15,10 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage();
         InventoryPage inventoryPage = new InventoryPage();
 
-        loginPage.login("standard_user", "secret_sauce");
+        loginPage.login(
+                ConfigReader.getProperty("username"),
+                ConfigReader.getProperty("password")
+        );
 
         Assert.assertTrue(inventoryPage.isInventoryPageLoaded(),
                 "Login failed - Inventory page not loaded");
